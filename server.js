@@ -17,7 +17,7 @@ const squareConnect = require('square-connect');
 const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // Set the Access Token
 const accessToken = 'EAAAEJ8uno0ICFFjq8-i9GVzg0nlq-Ab22QJ2uIu9qObYbYjIIVklfGERhDODaN-';
@@ -77,15 +77,15 @@ async function mailerStart(){
 //--NODEMAILER - END ---
 
 app.post('/customerInformation', urlencodedParser, function (req, res){
-	console.log(req.body); 
-	data=req.body; 
+	console.log(req.body);
+	data=req.body;
 
 });
 
 app.post('/process-payment', async (req, res) => {
   const request_params = req.body;
 	console.log(req.body);
-	
+
 
 
   // length of idempotency_key should be less than 45
@@ -121,5 +121,3 @@ app.listen(
   port,
   () => console.log(`listening on - http://localhost:${port}`)
 );
-	
-	
