@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Things Are Getting Better - Anita B.</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+	
+	<!-- link to the SqPaymentForm library -->
+<script type="text/javascript" src="https://js.squareupsandbox.com/v2/paymentform">
+</script>
+
+<!-- link to the local custom styles for SqPaymentForm -->
+<link rel="stylesheet" type="text/css" href="mysqpaymentform.css">
+
+	
+</head>
+
+<body>
+
+
+	
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Media Download Portal</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+           <!-- <a class="nav-link" href="#">Sign Up</a> -->
+          </li>
+          <li class="nav-item">
+           <!-- <a class="nav-link" href="#">Log In</a> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Things Are Getting Better</h1>
+        <h2 class="masthead-subheading mb-0">Written By: Anita B.</h2>
+        <a href="#download" class="btn btn-primary btn-xl rounded-pill mt-5">Digital Download</a>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <section class="shadow-lg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="img/AdobeStock_211878486.jpeg" alt="Guitar Player">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Download your copy today!</h2>
+            <p>Feel Free to view the song free on Youtube. Or, you can download a copy after filling out the form below.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+	
+	<div class="row">
+		<div class="col-lg-12  text-center">
+		
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/vLJljl5mtvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+			<hr><hr>
+			<div class="container-fluid">
+			<form method="POST" action="/customerInformation">
+				
+	
+				<h1 id="download">:::Version Selection :::</h1>
+			<select id="version" name="version">
+				<option value="299">Audio Only Download - <strong>$2.99</strong></option>
+				<option value="499">Video Download - <strong>$4.99</strong> </option>
+				</select>
+				<h1>:::Customer Information:::</h1>
+		  	  <input type="text" name="fname" id="fname" placeholder="First Name" required><br><br>
+			  <input type="text" name="lname" id="lname" placeholder="Last Name" required><br><br>
+			  <input type="text" name="email" id="emailAddress" placeholder="Email Address" required>
+				<input type="submit" value="Next =>" onclick="paymentForm.build();">
+				<br><br><br><br><br><br>
+			  </form>
+			</div>
+			
+		</div>
+	</div>
+
+  <section>
+	  <div class="container">
+	  <div class="row align-items-center">
+		  <div class="col-10">
+		  
+	  
+	  </div>
+	 </div>
+	  </div>		  
+
+    <div class="container">
+		
+      <div class="row align-items-center">
+		  
+		
+        
+       <!-- SQUARE CONTENT BEGINS HERE -->
+		  
+		  <br>
+		  <div class="col-lg-12">
+			   <div id="form-container">
+     <div id="sq-card-number"></div>
+     <div class="third" id="sq-expiration-date"></div>
+     <div class="third" id="sq-cvv"></div>
+     <div class="third" id="sq-postal-code"></div>
+     <button id="sq-creditcard" class="button-credit-card" onclick="onGetCardNonce(event)">Purchase Content</button>
+				   
+				   <h2><a href="video/02 Bingham, Anita-Things Are Getting Better.mp4" download id="downloadVideoLink"></a></h2>
+				   <h2><a href="audio/02 Bingham, Anita-Things Are Getting Better.mp3" download id="downloadAudioLink"></a></h2>
+				   <p id="confirmation"></p>
+   </div> <!-- end #form-container --> 
+   <!-- TODO: Add script from step 1.1.3 -->
+		  <script type="text/javascript">
+			  	  
+
+	
+	
+			  
+     // Create and initialize a payment form object
+     const paymentForm = new SqPaymentForm({
+       // Initialize the payment form elements
+       
+       //TODO: Replace with your sandbox application ID
+       applicationId: "sandbox-sq0idb-AE4sfOr-ZWusHQWOn_4rTA",
+       inputClass: 'sq-input',
+       autoBuild: false,
+       // Customize the CSS for SqPaymentForm iframe elements
+       inputStyles: [{
+           fontSize: '16px',
+           lineHeight: '24px',
+           padding: '16px',
+           placeholderColor: '#a0a0a0',
+           backgroundColor: 'transparent',
+       }],
+       // Initialize the credit card placeholders
+       cardNumber: {
+           elementId: 'sq-card-number',
+           placeholder: 'Card Number'
+       },
+       cvv: {
+           elementId: 'sq-cvv',
+           placeholder: 'CVV'
+       },
+       expirationDate: {
+           elementId: 'sq-expiration-date',
+           placeholder: 'MM/YY'
+       },
+       postalCode: {
+           elementId: 'sq-postal-code',
+           placeholder: 'Postal'
+       },
+       // SqPaymentForm callback functions
+       callbacks: {
+           /*
+           * callback function: cardNonceResponseReceived
+           * Triggered when: SqPaymentForm completes a card nonce request
+           */
+           cardNonceResponseReceived: function (errors, nonce, cardData) {
+           if (errors) {
+               // Log errors from nonce generation to the browser developer console.
+               console.error('Encountered errors:');
+               errors.forEach(function (error) {
+                   console.error('  ' + error.message);
+               });
+               alert('Encountered errors, check browser developer console for more details');
+               return;
+           }
+              //TODO: Replace alert with code in step 2.1
+			                 fetch('process-payment', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  nonce: nonce, 
+					amount: parseInt(document.getElementById("version").value)
+                })
+              })
+              .catch(err => {
+                alert('Network error: ' + err);
+              })
+              .then(response => {
+                if (!response.ok) {
+                  return response.json().then(errorInfo => Promise.reject(errorInfo)); //UPDATE HERE
+                }
+                return response.json(); //UPDATE HERE
+              })
+              .then(data => {
+                console.log(data); //UPDATE HERE
+                alert('Confirmation Code: ' + nonce + '\nPayment complete successfully! Thank You! \nClick the Link provided below to download your content');
+								 if ((document.getElementById('version').value)==499){
+									 document.getElementById('downloadVideoLink').innerHTML = "Click Here to Download Your Purchased Video." 
+									 document.getElementById('confirmation').innerHTML = "Video Price: $4.99 \nConfirmation Code: " + nonce;
+								 }else{
+									 document.getElementById('downloadAudioLink').innerHTML = "Click here to Download Your Purchased Audio File.";
+									 document.getElementById('confirmation').innerHTML = "Audio Price: $2.99 \nConfirmation Code: " + nonce;
+								 }
+              })
+              .catch(err => {
+                console.error(err);
+                alert('Payment failed to complete!\nPlease Try Again');
+              });
+
+           }
+       }
+     });
+     //TODO: paste code from step 1.1.4
+			       //TODO: paste code from step 1.1.5
+			  
+     // onGetCardNonce is triggered when the "Pay $1.00" button is clicked
+     function onGetCardNonce(event) {
+       // Don't submit the form until SqPaymentForm returns with a nonce
+       event.preventDefault();
+       // Request a nonce from the SqPaymentForm object
+       paymentForm.requestCardNonce();
+     }
+
+			  
+			      
+			  
+			  
+			  
+     // onGetCardNonce is triggered when the "Pay $1.00" button is clicked
+     function onGetCardNonce(event) {
+       // Don't submit the form until SqPaymentForm returns with a nonce
+       event.preventDefault();
+       // Request a nonce from the SqPaymentForm object
+       paymentForm.requestCardNonce();
+     }
+   </script>
+					
+		</div>
+   </div>
+	  </div>		  
+		  
+        
+   
+  </section>
+
+ 
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; 2020 <br> Web Page Compiled By <a href="https://www.aboveall-media.tech/" target="_blank">Above All Media LLC. </a></p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
