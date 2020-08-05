@@ -30,9 +30,14 @@
 
 </head>
 
-<body>
+<body onload="getCode()">
 
-
+<script>
+	function getCode(){
+	document.getElementById('c_code').innerHTML= localStorage.getItem('confirm'); 
+	document.getElementById('c_name').innerHTML= localStorage.getItem('name'); 
+	}
+	</script>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -96,16 +101,22 @@
 			<form method="POST" action="/customerInformation">
 
 
-				<h1 id="download">:::Version Selection :::</h1>
-			<select id="version" name="version">
-				<option value="299">Audio Only Download - <strong>$2.99</strong></option>
-				<option value="499">Video Download - <strong>$4.99</strong> </option>
-				</select>
-				<h1>:::Customer Information:::</h1>
-		  	  <input type="text" name="fname" id="fname" placeholder="First Name" required><br><br>
-			  <input type="text" name="lname" id="lname" placeholder="Last Name" required><br><br>
-			  <input type="text" name="email" id="emailAddress" placeholder="Email Address" required>
-				<input type="submit" value="Next =>" onclick="paymentForm.build();">
+				<h1 id="download">:::THANK YOU:::</h1>
+				
+				<p><strong>Video Download</strong></p>
+				<p>Price: $4.99</p>
+				
+				<p><strong>Customer Name: </strong></p>
+				<p id="c_name"></p>
+				
+				<p><strong>Confirmation Code: </strong></p>
+				<p id="c_code"></p>
+				<p>You may print this page for your records</p>
+			
+				
+				
+		  	 
+			
 				<br><br><br><br><br><br>
 			  </form>
 			</div>
@@ -134,18 +145,18 @@
 		  <br>
 		  <div class="col-lg-12">
 			   <div id="form-container">
-     <div id="sq-card-number"></div>
-     <div class="third" id="sq-expiration-date"></div>
-     <div class="third" id="sq-cvv"></div>
-     <div class="third" id="sq-postal-code"></div>
-     <button id="sq-creditcard" class="button-credit-card" onclick="onGetCardNonce(event)">Purchase Content</button>
+ 
+    
 
-				   <h2><a href="video/02 Bingham, Anita-Things Are Getting Better-1.m4v" download id="downloadVideoLink"></a></h2>
+				   <h2><a href="video/02 Bingham, Anita-Things Are Getting Better-1.m4v" download id="downloadVideoLink">Click here to Download your content </a></h2>
 				   <h2><a href="audio/02 Bingham, Anita-Things Are Getting Better.mp3" download id="downloadAudioLink"></a></h2>
 				   <p id="confirmation"></p>
    </div> <!-- end #form-container -->
    <!-- TODO: Add script from step 1.1.3 -->
 		  <script type="text/javascript">
+
+
+
 
 
      // Create and initialize a payment form object
@@ -225,14 +236,10 @@
 									 document.getElementById('downloadVideoLink').innerHTML = "Click Here to Download Your Purchased Video."
 									 document.getElementById('confirmation').innerHTML = "Video Price: $4.99 \nConfirmation Code: " + nonce;
 									 setTimeout(window.location.replace('videoDownload.html#download'), 20000);
-									 localStorage.setItem('confirm', nonce);
-									 localStorage.setItem('name', ((document.getElementById('fname').value)  + "  "  + (document.getElementById('lname').value) ));
 								 }else{
 									 document.getElementById('downloadAudioLink').innerHTML = "Click here to Download Your Purchased Audio File.";
 									 document.getElementById('confirmation').innerHTML = "Audio Price: $2.99 \nConfirmation Code: " + nonce;
 									 setTimeout(window.location.replace('audioDownload.html#download'), 20000);
-									 localStorage.setItem('confirm', nonce); 
-									 localStorage.setItem('name', ((document.getElementById('fname').value)  + "  "  + (document.getElementById('lname').value) ));
 								 }
               })
               .catch(err => {
@@ -265,9 +272,7 @@
        event.preventDefault();
        // Request a nonce from the SqPaymentForm object
        paymentForm.requestCardNonce();
-     
-	}
-			  
+     }
    </script>
 
 		</div>

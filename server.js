@@ -20,7 +20,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 // Set the Access Token
-const accessToken = 'EAAAEJ8uno0ICFFjq8-i9GVzg0nlq-Ab22QJ2uIu9qObYbYjIIVklfGERhDODaN-';
+const accessToken = 'EAAAED6fMU8cQDA8jd_5MGgXABjKltLH6bRmjOhm2un054xj-tDb6Usj6viygDmb';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,7 +57,7 @@ async function mailerStart(){
 
   let info= {
     from: '"[MEDIA PORTAL DOWNLOAD]- Online Order" <media@aboveall-media.tech' ,
-    to: "leatkins@aboveall-media.tech",
+    to: "anitabingham19@gmail.com",
     subject: "::NEW ORDER - GENERATED::",
     html: "<h1>Order Information</h1><hr><h3>Version Downloaded: </h3><p>" + data.version + "<hr></p><p><strong>Customer Name: </strong>" +  data.fname + " " + data.lname + "</p><p><strong>E-mail Address: </strong> " + data.email + "</p>"
 
