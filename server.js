@@ -36,7 +36,7 @@ oauth2.accessToken = accessToken;
 // Set 'basePath' to switch between sandbox env and production env
 // sandbox: https://connect.squareupsandbox.com
 // production: https://connect.squareup.com
-defaultClient.basePath = 'https://connect.squareupsandbox.com';
+defaultClient.basePath = 'https://connect.squareup.com';
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
